@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/Users/Jason/AppData/Local/.xmake/packages/g/gtest/v1.14.0/eb5d8a173877428c8007a16427f6d8d6/include"
+                "${workspaceFolder}/src/include",
+                "${userHome}/AppData/Local/.xmake/packages/g/gtest/v1.14.0/eb5d8a173877428c8007a16427f6d8d6/include"
             ],
             "defines": [
                 "_DEBUG",
