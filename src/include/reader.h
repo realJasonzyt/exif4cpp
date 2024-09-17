@@ -19,6 +19,8 @@ public:
         return value;
     }
 
+    std::string read(size_t size);
+
     std::string read_until(char* tag, size_t size);
 
 private:

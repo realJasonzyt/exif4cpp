@@ -14,6 +14,13 @@ bool isBigEndian() {
 
 reader::reader(std::fstream& ifs) : stream_(ifs), is_big_endian_(isBigEndian()) {}
 
+std::string reader::read(size_t size) {
+    std::string result;
+    result.resize(size);
+    stream_.read(result.data(), size);
+    return result;
+}
+
 std::string reader::read_until(char* tag, size_t size) {
     std::string result;
     result.resize(size);
