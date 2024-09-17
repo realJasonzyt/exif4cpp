@@ -12,16 +12,16 @@ bool isBigEndian() {
     return u.c[0] == 1;
 }
 
-reader::reader(std::fstream& ifs) : stream_(ifs), is_big_endian_(isBigEndian()) {}
+Reader::Reader(std::fstream& ifs) : stream_(ifs), platform_big_endian_(isBigEndian()) {}
 
-std::string reader::read(size_t size) {
+std::string Reader::read(size_t size) {
     std::string result;
     result.resize(size);
     stream_.read(result.data(), size);
     return result;
 }
 
-std::string reader::read_until(char* tag, size_t size) {
+std::string Reader::readUntil(char* tag, size_t size) {
     std::string result;
     result.resize(size);
     stream_.read(result.data(), size);
@@ -32,5 +32,9 @@ std::string reader::read_until(char* tag, size_t size) {
     }
     return result;
 }
+
+void Reader::skip(size_t size) { stream_.seekg(size, std::ios::cur); }
+
+void Reader::setFileEndian(bool big_endian) { file_big_endian_ = big_endian; }
 
 } // namespace exif::details
