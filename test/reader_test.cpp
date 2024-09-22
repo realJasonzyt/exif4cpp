@@ -32,6 +32,9 @@ TEST_F(ReaderTest, ReadInt) {
     EXPECT_EQ(r.read<uint16_t>(), 0xFFE1);
     EXPECT_EQ(r.read<uint16_t>(), 0x14C1);
     EXPECT_EQ(r.read<uint32_t>(), 0x45786966);
+    uint16_t a;
+    r.read(a);
+    EXPECT_EQ(a, 0x0);
 }
 
 TEST_F(ReaderTest, Read) {

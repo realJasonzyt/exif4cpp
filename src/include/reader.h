@@ -21,6 +21,12 @@ public:
 
     std::string read(size_t size);
 
+    template <typename T>
+        requires std::is_integral_v<T>
+    void read(T& dest) {
+        dest = read<T>();
+    }
+
     std::string readUntil(char* tag, size_t size);
 
     void skip(size_t size);
